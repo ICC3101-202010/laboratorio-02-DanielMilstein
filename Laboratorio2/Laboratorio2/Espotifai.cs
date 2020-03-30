@@ -43,6 +43,10 @@ namespace Laboratorio2
 
         public void VerCanciones()
         {
+            if (Canciones.Count() == 0)
+            {
+                Console.WriteLine("No hay canciones.");
+            }
             foreach (Cancion item in Canciones)
             {
                 Console.WriteLine(item.Informacion());
