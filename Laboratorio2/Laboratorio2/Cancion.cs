@@ -8,6 +8,11 @@ namespace Laboratorio2
         private string Album;
         private string Genero;
 
+        public string GetNombre() { return Nombre; }
+        public string GetArtista() { return Artista; }
+        public string GetAlbum() { return Album;  }
+        public string GetGenero() { return Genero; }
+
         public Cancion(string nombre, string artista, string album, string genero)
         {
             Nombre = nombre;

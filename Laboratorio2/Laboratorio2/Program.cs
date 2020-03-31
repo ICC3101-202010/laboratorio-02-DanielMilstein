@@ -9,15 +9,16 @@ namespace Laboratorio2
             int x = 0;
             Console.WriteLine("Bienvenido a Espotifai");
             Espotifai spot = new Espotifai();
-
+            Cancion c = new Cancion("a", "b", "c", "d");
             while (x == 0)
             {
                 Console.WriteLine("Menu:");
                 Console.WriteLine("Presiona 1 para agregar una cancion.");
                 Console.WriteLine("Presiona 2 para ver tus canciones.");
-                Console.WriteLine("Presiona 3 para salir del programa.");
+                Console.WriteLine("Presiona 3 para ver canciones por criterio.");
+                Console.WriteLine("Presiona 0 para salir del programa.");
                 string input = Console.ReadLine();
-                if (input == "3") { x = 1; }
+                if (input == "0") { x = 1; }
 
                 else if (input == "1")
                 {
@@ -40,6 +41,20 @@ namespace Laboratorio2
                 {
                     spot.VerCanciones();
                 }
+
+                else if (input == "3")
+                {
+                    string criterio = null;
+                    string val = null;
+
+                    foreach (var item in spot.CancionesPorCriterio(criterio, val))
+                    {
+                        Console.WriteLine(item.Informacion());
+                    }
+                    
+                }
+
+
                 else { Console.WriteLine("Comando invalido."); }
 
 
