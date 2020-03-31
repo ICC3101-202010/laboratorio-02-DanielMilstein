@@ -64,6 +64,11 @@ namespace Laboratorio2
                     spot.GenerarPlaylist(criterio, valor, nombrePlay);
                 }
 
+                else if (input == "5")
+                {
+                    Console.Write(spot.VerMisPlaylists());
+                }
+
                 else { Console.WriteLine("Comando invalido."); }
 
 
@@ -76,22 +81,3 @@ namespace Laboratorio2
         }
     }
 }
-
-
-//Console.ReadLine();
-//Console.ReadKey();
-
-//Cancion c1 = new Cancion("Seek & Destroy", "Metallica", "Kill 'Em All", "Thrash Metal");
-//Cancion c2 = new Cancion("The Four Horsemen", "Metallica", "Kill 'Em All", "Thrash Metal");
-
-//Console.WriteLine(c1.Informacion());
-
-//
-
-//spot.AgregarCancion(c1);
-//            spot.VerCanciones();
-//            Console.WriteLine("-------------");
-//
-//            spot.AgregarCancion(c2);
-//            spot.AgregarCancion(c1);
-//            spot.VerCanciones();

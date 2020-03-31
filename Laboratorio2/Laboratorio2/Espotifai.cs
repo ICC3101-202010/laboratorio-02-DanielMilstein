@@ -134,7 +134,12 @@ namespace Laboratorio2
             {
                 Playlist lista = new Playlist(nombrePlaylist, play);
                 Playlists.Add(lista);
-                Console.WriteLine("Playlist creado exitosamente!");
+                Console.WriteLine("Playlist \"{0}\" creado exitosamente!", lista.GetNombre());
+                foreach (Cancion c in play)
+                {
+                    Console.WriteLine(c.Informacion());
+                }
+
                 return true;
             }
 
@@ -142,7 +147,22 @@ namespace Laboratorio2
 
         public String VerMisPlaylists()
         {
-            return "";
+            string mostrar = null;
+
+            foreach (Playlist item in Playlists)
+            {
+                mostrar += item.GetNombre();
+                mostrar += "\n\n";
+                foreach (Cancion x in item.GetPlaylist())
+                {
+                    mostrar += x.Informacion();
+                    mostrar += "\n\n";
+                }
+            }
+
+
+
+            return mostrar;
         }
     }
 }

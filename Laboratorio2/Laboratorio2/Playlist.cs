@@ -17,5 +17,6 @@ namespace Laboratorio2
         }
 
         public string GetNombre() { return Nombre; }
+        public List<Cancion> GetPlaylist() { return Lista; }
     }
 }
