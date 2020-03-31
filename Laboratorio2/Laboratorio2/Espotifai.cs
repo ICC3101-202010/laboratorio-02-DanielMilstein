@@ -7,11 +7,15 @@ namespace Laboratorio2
     public class Espotifai
     {
         private List<Cancion> Canciones;
+        private List<Playlist> Playlists;
+
 
         public Espotifai()
         {
             List<Cancion> list = new List<Cancion>();
+            List<Playlist> playlists = new List<Playlist>();
             Canciones = list;
+            Playlists = playlists;
 
         }
 
@@ -29,16 +33,16 @@ namespace Laboratorio2
                     if (x.Informacion() == cancion.Informacion())
                     {
                         return false;
-                    } 
+                    }
                 }
                 Canciones.Add(cancion);
                 return true;
 
             }
 
-            
 
-            
+
+
         }
 
         public void VerCanciones()
@@ -74,8 +78,8 @@ namespace Laboratorio2
 
             else
             {
-                
-                if (criterio == "1") { criterio = "nombre de la cancion"; caso = 1;  }
+
+                if (criterio == "1") { criterio = "nombre de la cancion"; caso = 1; }
                 else if (criterio == "2") { criterio = "artista"; caso = 2; }
                 else if (criterio == "3") { criterio = "album"; caso = 3; }
                 else if (criterio == "4") { criterio = "genero"; caso = 4; }
@@ -104,6 +108,41 @@ namespace Laboratorio2
                 if (busqueda.Count() == 0) { Console.WriteLine("No se encontraron canciones con el valor solicitado."); }
             }
             return busqueda;
+        }
+
+
+        public bool GenerarPlaylist(string criterio, string valor, string nombrePlaylist)
+        {
+            Console.WriteLine("Ingrese el nombre de su playlist:");
+            nombrePlaylist = Console.ReadLine();
+            if (Playlists.Count() != 0)
+            {
+                foreach (Playlist item in Playlists)
+                {
+                    if (item.GetNombre() == nombrePlaylist)
+                    {
+                        Console.WriteLine("Ya existe una lista con ese nombre");
+                        return false;
+                    }
+                }
+            }
+            List<Cancion> play = CancionesPorCriterio(criterio, valor);
+
+            if (play.Count() == 0) { return false; }
+
+            else
+            {
+                Playlist lista = new Playlist(nombrePlaylist, play);
+                Playlists.Add(lista);
+                Console.WriteLine("Playlist creado exitosamente!");
+                return true;
+            }
+
+        }
+
+        public String VerMisPlaylists()
+        {
+            return "";
         }
     }
 }

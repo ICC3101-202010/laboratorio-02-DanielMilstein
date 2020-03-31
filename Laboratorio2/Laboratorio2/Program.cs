@@ -16,6 +16,8 @@ namespace Laboratorio2
                 Console.WriteLine("Presiona 1 para agregar una cancion.");
                 Console.WriteLine("Presiona 2 para ver tus canciones.");
                 Console.WriteLine("Presiona 3 para ver canciones por criterio.");
+                Console.WriteLine("Presiona 4 para crear un playlist.");
+                Console.WriteLine("Presiona 5 para ver tus playlists.");
                 Console.WriteLine("Presiona 0 para salir del programa.");
                 string input = Console.ReadLine();
                 if (input == "0") { x = 1; }
@@ -53,7 +55,14 @@ namespace Laboratorio2
                     }
                     
                 }
+                else if (input == "4")
+                {
+                    string criterio = null;
+                    string valor = null;
+                    string nombrePlay = null;
 
+                    spot.GenerarPlaylist(criterio, valor, nombrePlay);
+                }
 
                 else { Console.WriteLine("Comando invalido."); }
 
